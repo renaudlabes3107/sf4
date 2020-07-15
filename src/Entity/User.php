@@ -72,7 +72,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $no;
+ 
 
     public function getId(): ?int
     {
