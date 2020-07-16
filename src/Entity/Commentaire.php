@@ -27,6 +27,16 @@ class Commentaire
      */
     private $creation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $auteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Annonce::class, inversedBy="commentaires")
+     */
+    private $Annonce;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +62,30 @@ class Commentaire
     public function setCreation(\DateTimeInterface $creation): self
     {
         $this->creation = $creation;
+
+        return $this;
+    }
+
+    public function getAuteur(): ?User
+    {
+        return $this->auteur;
+    }
+
+    public function setAuteur(?User $auteur): self
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    public function getAnnonce(): ?Annonce
+    {
+        return $this->Annonce;
+    }
+
+    public function setAnnonce(?Annonce $Annonce): self
+    {
+        $this->Annonce = $Annonce;
 
         return $this;
     }
